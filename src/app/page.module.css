@@ -1,4 +1,8 @@
 .page {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
   background-color: aqua;
   min-height: 100vh;
   color: black;
