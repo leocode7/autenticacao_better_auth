@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "./inscricao.module.css"
+import styles from "./inscricao.module.css";
 import { useActionState } from "react";
 import { inscricaoAction } from "./inscricaoAction";
 
@@ -15,7 +15,7 @@ const initialState: FormState = {
 }
 
 const InscricaoPage = () => {
-  
+
   const [state, formAction, isPedding] = useActionState(inscricaoAction, initialState);
 
   return (
@@ -36,7 +36,7 @@ const InscricaoPage = () => {
           required
         />
         <input
-          name="password" 
+          name="password"
           type="password"
           placeholder="Senha com no mínimo 8 caracteres"
           required

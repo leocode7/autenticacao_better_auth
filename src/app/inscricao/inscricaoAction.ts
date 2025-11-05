@@ -9,9 +9,8 @@ export const inscricaoAction = async (_prevSatet: any, formData: FormData) => {
   });
 
   if (res.error) {
-    return {success: false, message: "Ops, algo ocorreu errado na inscrição. Tente novamente!"}
+    return { success: false, message: "Ops, algo ocorreu errado na inscrição. Tente novamente!" }
   } else {
     redirect("dashboard");
   }
-
 }
