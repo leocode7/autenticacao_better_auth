@@ -1,15 +1,13 @@
-import { signIn } from "@/lib/auth-client"
+import { authClient } from "@/lib/auth-client"
 import { redirect } from "next/navigation";
 
-export const entrarAction = async (_prevState: any, formData: FormData) => {
-  const res = await signIn.email({
+export const entrarAction = async (formData: FormData) => {
+  const { data, error } = await authClient.emailOtp.sendVerificationOtp({
     email: formData.get("email") as string,
-    password: formData.get("password") as string,
+    type: "sign-in", // required
   });
-
-  if (res.error) {
-    return { success: false, message: "Dados de login incorretos" }
-  } else {
-    redirect("dashboard");
+  if (error) {
+    console.log(`Erro: ${error}`);
   }
+  console.log(data)
 }
