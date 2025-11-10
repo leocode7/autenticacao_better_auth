@@ -1,5 +1,4 @@
 import { authClient } from "@/lib/auth-client"
-import { redirect } from "next/navigation";
 
 export const entrarAction = async (formData: FormData) => {
   const { data, error } = await authClient.emailOtp.sendVerificationOtp({
