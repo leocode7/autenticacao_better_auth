@@ -19,10 +19,11 @@ export const auth = betterAuth({
       overrideDefaultEmailVerification: true,
       otpLength: 8,
       expiresIn: 600,
+      disableSignUp: true,
       async sendVerificationOTP({ email, otp, type }) {
         if (type === "sign-in") {
           const { data, error } = await resend.emails.send({
-            from: "no-reply@resend.dev",
+            from: "nao-responder@notifications.leocode.com.br",
             to: email,
             subject: "Seu código de login",
             text: `Use este código para login: ${otp}`,
@@ -30,7 +31,7 @@ export const auth = betterAuth({
           if (error) {
             return console.log("Algo deu errado com o envio do código")
           }
-          console.log("Código   enviado")
+          console.log("Código enviado")
 
         } else if (type === "email-verification") {
 
