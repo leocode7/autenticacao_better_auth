@@ -1,5 +1,6 @@
 import { authClient } from "@/lib/auth-client";
 import { email } from "better-auth";
+import { redirect } from "next/navigation";
 
 export const entrarComOtop = async (formData: FormData) => {
   const {data, error} = await authClient.signIn.emailOtp({
@@ -10,5 +11,5 @@ export const entrarComOtop = async (formData: FormData) => {
     console.log(`Erro: ${error}`);
   }
   console.log('Login efetuado');
-  console.log(formData.get("email") as string)
+  redirect('dashboard');
 }
